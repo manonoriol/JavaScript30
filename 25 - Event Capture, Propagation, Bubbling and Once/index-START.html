@@ -12,14 +12,14 @@
       </div>
     </div>
   </div>
-
+<button>POOPIE</button>
 <style>
   html {
     box-sizing: border-box;
   }
-  
-  *, *:before, *:after { 
-    box-sizing: inherit; 
+
+  *, *:before, *:after {
+    box-sizing: inherit;
   }
 
   div {
@@ -39,9 +39,28 @@
     background: coral;
   }
 </style>
-
-<button></button>
 <script>
+  const divs = document.querySelectorAll('div');
+  const button = document.querySelector('button')
+
+  function logText(e){
+    console.log(this.classList.value);
+    e.stopPropagation();
+  }
+
+  divs.forEach(div => {
+    div.addEventListener('click', logText, {
+      capture: false,
+      once: true
+    });
+  })
+
+    button.addEventListener('click', () => {
+      console.log('click!!!');
+    }, {
+      once: true
+    })
+
 
 </script>
 </body>
